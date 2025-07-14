@@ -1,0 +1,66 @@
+@use "assets/styles/variables" as *;
+
+.skill {
+  text-align: start;
+  margin: 20px 0 20px 0;
+  .skill-title-container {
+    display: flex;
+    justify-content: space-between;
+    h3 {
+      font-family: $primary-text;
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+    button {
+      border: none;
+      background-color: $primary-color;
+      margin-bottom: 8px;
+      padding: 0;
+    }
+    .down-arrow {
+      &.hide-arrow {
+        display: none;
+      }
+    }
+
+    .top-arrow {
+      display: none;
+      &.show-arrow {
+        display: block;
+      }
+    }
+  }
+  .content-container {
+    opacity: 0;
+    max-height: 0;
+    visibility: hidden;
+    border-bottom: 1px solid $tertiary-color-hover;
+    border-left: 1px solid $tertiary-color-hover;
+    border-right: 1px solid $tertiary-color-hover;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    transition: opacity 0.5s ease, max-height 0.5s ease, visibility 0.5s ease;
+    &.show-content {
+      opacity: 1;
+      max-height: 1000px;
+      visibility: visible;
+    }
+    p {
+      font-family: $secondary-text;
+      font-weight: 400;
+      font-size: 1rem;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  .skill-box {
+    height: 15px;
+    border: 1px solid $tertiary-color-hover;
+    border-radius: 10px;
+    div {
+      height: 100%;
+      background-color: $tertiary-color;
+      border-radius: 10px;
+    }
+  }
+}

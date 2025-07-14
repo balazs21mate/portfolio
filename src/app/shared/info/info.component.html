@@ -1,0 +1,6 @@
+<article>
+    @if (isShowInfo()) {
+    <p class="info" [class]="{wide: wideText(), left: leftText()}">{{message()}}</p>
+    }
+    <a class="infoButton" (mousemove)="ShowInfo()" (mouseleave)="HideInfo()">i</a>
+</article>

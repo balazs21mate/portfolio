@@ -1,0 +1,67 @@
+<article id="contact">
+    <section class="container">
+        <article class="title"><app-title [title]="title()" /></article>
+        <ul>
+            <li>{{phone()}}: 06306099331</li>
+            <li>Email: balazs31mate.webdev&#64;gmail.com</li>
+        </ul>
+        <form (ngSubmit)="sendEmail($event)">
+            <article class="title form-title">{{formData().title}}</article>
+            <p class="text-success mt-1 form-message" [class.form-message-show]="isSentEmail()">
+                {{errorMessages().sentEmail}}</p>
+            <fieldset [formGroup]="emailForm">
+                <div class="form-group">
+                    <label for="sendName" class="form-label">{{formData().name}}:</label>
+                    <input [class.invalid]="name?.invalid && (name?.touched || name?.dirty)" type="email" id="sendName"
+                        name="name" title="sendName" class="form-control" formControlName="name">
+                    @if (name?.invalid && (name?.touched || name?.dirty)) {
+                    <div class="text-danger mt-1"> @if (name?.hasError('required')) {
+                        <p>{{errorMessages().nameRequired}}</p>
+                        }
+
+                        @if (name?.hasError('pattern')) {
+                        <p>{{errorMessages().nameValid}}</p>
+                        }
+
+                    </div>
+                    }
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email:</label>
+                    <input [class.invalid]="email?.invalid && (email?.touched || email?.dirty)" id="email" type="text"
+                        name="email" title="email" class="form-control" formControlName="email">
+                    @if (email?.invalid && (email?.touched || email?.dirty)) {
+                    <div class="text-danger mt-1"> @if (email?.hasError('required')) {
+                        <p>{{errorMessages().emailRequired}}</p>
+                        }
+
+                        @if (email?.hasError('email')) {
+                        <p>{{errorMessages().emailValid}}</p>
+                        }
+
+                    </div>
+                    }
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">{{formData().message}}:</label>
+                    <textarea [class.invalid]="message?.invalid && (message?.touched || message?.dirty)" name="message"
+                        id="message" class="form-control" rows="5" formControlName="message"></textarea>
+                    @if (message?.invalid && (message?.touched || message?.dirty)) {
+                    <div class="text-danger mt-1">
+                        @if (message?.hasError('required')) {
+                        <p>{{errorMessages().messageRequired}}</p>
+                        }
+                        @if (message?.hasError('minlength')) {
+                        <p>{{errorMessages().messageMinLength}}</p>
+                        }
+                        @if (message?.hasError('maxlength')) {
+                        <p>{{errorMessages().messageMaxLength}}</p>
+                        }
+                    </div>
+                    }
+                </div>
+                <button type="submit">{{formData().buttonText}}</button>
+            </fieldset>
+        </form>
+    </section>
+</article>

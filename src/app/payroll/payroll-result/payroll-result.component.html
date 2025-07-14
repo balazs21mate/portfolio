@@ -1,0 +1,79 @@
+<main class="container">
+    <h1 class="text-center">Bérpappír</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Összeg (HUF)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alapbér</td>
+                <td>{{values.basicSalary | number: '1.0-0' }} </td>
+            </tr>
+            <tr>
+                <td>Délutános műszakpótlék</td>
+                <td>{{values.middayWage | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Éjszakás műszakpótlék</td>
+                <td>{{values.nightWage | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Hétközi túlóra</td>
+                <td>{{values.ordinaryOvertime | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Hétvégi túlóra</td>
+                <td>{{values.weekendOvertime | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Fizetett szabadság/ünnep</td>
+                <td>{{values.holiday | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Betegszabadság</td>
+                <td>{{values.sickPay | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Táppénz</td>
+                <td>{{values.sicknessBenefit | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Munkábajárás támogatása</td>
+                <td>{{values.ownVehicleAllowance | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Bruttó munkabér</td>
+                <td>{{values.grossSalary | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Járandóságok összesen</td>
+                <td>{{(values.grossSalary + values.ownVehicleAllowance) | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Összevont adóalap</td>
+                <td>{{values.taxBase | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Összes levont kedvezmény</td>
+                <td>{{values.deductedDiscounts | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Személyi jövedelemadó (15%)</td>
+                <td>{{values.szja | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Társadalom Biztosítási járadék</td>
+                <td>{{values.tb | number: '1.0-0'}}</td>
+            </tr>
+            <tr>
+                <td>Nettó összeg</td>
+                <td>{{values.netSalary | number: '1.0-0'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a routerLink="/payroll" class="button left"><img src="portfolio/left-arrow.png" alt="left arrow" height="20px">
+        Vissza</a>
+</main>

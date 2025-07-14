@@ -1,0 +1,10 @@
+<article id="mini-apps">
+    <section class="container ">
+        <article class="title"><app-title [title]="title()" /></article>
+        <article class="content-container row ">
+            @for (app of miniApps(); track $index) {
+            <app-mini-app class="col-sm-12 col-lg-6" [miniApp]="app" />
+            }
+        </article>
+    </section>
+</article>

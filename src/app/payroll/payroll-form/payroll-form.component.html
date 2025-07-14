@@ -1,0 +1,137 @@
+<main class="container">
+    <h1 class="text-center">Bérszámfejtő</h1>
+    <form (ngSubmit)="onSubmit()" [formGroup]="payrollForm">
+        <fieldset>
+            <legend>Alap információk</legend>
+            <div class="form-group">
+                <label for="hourly-rates">Órabér - Ft (br)</label>
+                <input type="number" id="hourly-rates" name="hourly-rates" class="form-control" min="0"
+                    formControlName="hourlyRates">
+            </div>
+            <div class="form-group">
+                <label for="hours">Óra/nap</label>
+                <input type="number" id="hours" name="hours" class="form-control" min="0" max="24"
+                    formControlName="hours">
+            </div>
+        </fieldset>
+        <hr>
+        <fieldset class="row">
+            <legend>Ledolgozott napok</legend>
+            <div class="form-group">
+                <label for="morning">Délelőttös</label>
+                <input type="number" id="morning" name="morning" class="form-control" min="0"
+                    formControlName="morningDays">
+            </div>
+            <div class="form-group col-6">
+                <label for="afternoon">Délutános</label>
+                <input type="number" id="afternoon" name="afternoon" class="form-control" min="0"
+                    formControlName="afternoonDays">
+            </div>
+            <div class="form-group col-6">
+                <label for="afternoon-shift-premium">Pótlék (%) </label>
+                <input type="number" id="afternoon-shift-premium" name="afternoon-shift-premium" class="form-control"
+                    value="15" min="0" formControlName="afternoonShiftPremium">
+            </div>
+            <div class="form-group col-6">
+                <label for="night">Éjszakás</label>
+                <input type="number" id="night" name="night" class="form-control" min="0" formControlName="nightDays">
+            </div>
+            <div class="form-group col-6">
+                <label for="night-shift-premium">Pótlék (%)</label>
+                <input type="number" id="night-shift-premium" name="night-shift-premium" class="form-control" value="30"
+                    min="0" formControlName="nightShiftPremium">
+            </div>
+        </fieldset>
+        <hr>
+        <fieldset class="row">
+            <legend>Túlóra<app-info [message]="messages().overtime" [wideText]="true" /></legend>
+            <div class="form-group col-6">
+                <label for="ordinary">Hétköznapi (óra)</label>
+                <input type="number" id="ordinary" name="ordinary" class="form-control" min="0" max="24"
+                    formControlName="ordinaryOvertime">
+            </div>
+            <div class="form-group col-6">
+                <label for="weekend">Hétvégi (óra)</label>
+                <input type="number" id="weekend" name="weekend" class="form-control" min="0" max="24"
+                    formControlName="weekendOvertime">
+            </div>
+        </fieldset>
+        <hr>
+        <fieldset class="row">
+            <legend>Betegszabadság - Táppénz<app-info [message]="messages().sickPay" [leftText]="true" /></legend>
+            <div class="form-group col-6">
+                <label for="sick-pay">Betegszabadság</label>
+                <input type="number" id="sick-pay" name="sick-pay" class="form-control" max="15" min="0"
+                    formControlName="sickPay">
+            </div>
+            <div class="form-group col-6">
+                <label for="sickness-benefit">Táppénz</label>
+                <input type="number" id="sickness-benefit" name="sickness-benefit" class="form-control" max="15" min="0"
+                    formControlName="sicknessBenefit">
+            </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+            <legend>Szabadnap - Fizetett ünnep<app-info [message]="messages().holiday" [leftText]="true" /></legend>
+            <div class="form-group">
+                <label for="holiday">Napok száma</label>
+                <input type="number" id="holiday" name="holiday" class="form-control" min="0" max="24"
+                    formControlName="holiday">
+            </div>
+        </fieldset>
+        <hr>
+        <fieldset>
+            <legend>Adó kedvezmények</legend>
+            <div class="form-check">
+                <label for="netak">Négy vagy több gyermeket nevelő anyák kedvezménye</label>
+                <input type="checkbox" id="netak" name="netak" class="form-check-input" formControlName="netak">
+            </div>
+            <div class="form-check">
+                <label for="youth_and_young_mother_tax_benefit">25 év alatti fiatalok / 30 év alatti anyák
+                    kedvezménye</label>
+                <input type="checkbox" id="youth_and_young_mother_tax_benefit" name="youth_and_young_mother_tax_benefit"
+                    class="form-check-input" formControlName="youthAndYoungMotherTaxBenefit">
+            </div>
+            <div class="form-check">
+                <label for="disability_tax_allowance">Személyi kedvezmény</label>
+                <input type="checkbox" id="disability_tax_allowance" name="disability_tax_allowance"
+                    class="form-check-input" formControlName="disabilityTaxAllowance">
+            </div>
+            <div class="form-check">
+                <label for="family_tax_allowance">Családi adókedvezmény</label>
+                <input type="checkbox" id="family_tax_allowance" name="family_tax_allowance" class="form-check-input"
+                    formControlName="familyTaxAllowance">
+            </div>
+            @if (getFormControlValue("familyTaxAllowance")) {
+            <div class="form-group col-3">
+                <label for="kids">Gyermekek száma</label>
+                <input type="number" id="kids" name="kids" class="form-control" formControlName="kids" min="1" max="3">
+            </div>
+            }
+        </fieldset>
+        <hr>
+        <fieldset>
+            <legend>Munkába járás költség térítése</legend>
+            <div class="form-check">
+                <label for="own-vehicle-allowance">Saját gépjármű használata</label>
+                <input type="checkbox" id="own-vehicle-allowance" name="own-vehicle-allowance" class="form-check-input"
+                    formControlName="ownVehicleAllowance">
+            </div>
+            @if (getFormControlValue("ownVehicleAllowance")) {
+            <section class="row">
+                <div class="form-group col-3">
+                    <label for="km">Km/Nap</label>
+                    <input type="number" id="km" name="km" class="form-control" formControlName="km">
+                </div>
+            </section>
+            }
+        </fieldset>
+        <hr>
+        <fieldset class="container buttons">
+            <a routerLink="" class="button left"><img src="portfolio/left-arrow.png" alt="left arrow" height="20px">
+                Vissza</a>
+            <button type="submit" class="button">Számítás
+            </button>
+        </fieldset>
+    </form>
+</main>

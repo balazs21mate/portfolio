@@ -1,0 +1,13 @@
+<article id="skills">
+    <section class="container text-center">
+        <app-title [title]="title()" />
+        <section class="skill-container row">
+            @for (skill of skills(); track $index) {
+            <app-skill class="col-sm-12 col-md-6" [skill]="skill" [isShowContent]="skill.name === skillContentName()"
+                (clickedItem)="onChangeSkillContentName($event)" />
+            }@empty {
+            <p>Jelenleg a készségek nem elérhetőek</p>
+            }
+        </section>
+    </section>
+</article>

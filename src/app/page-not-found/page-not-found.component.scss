@@ -1,0 +1,48 @@
+@use "assets/styles/variables" as *;
+
+:host {
+  display: flex;
+  height: 100dvh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: $secondary-text;
+  font-weight: 400;
+
+  h1 {
+    font-size: 5rem;
+    color: $tertiary-color;
+    font-family: $primary-text;
+    font-weight: 900;
+  }
+
+  h2 {
+    margin: 50px 0 50px 0;
+  }
+
+  a,
+  a:link,
+  a:visited {
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background-color: $tertiary-color;
+    padding: 10px;
+    border-radius: 20px;
+    color: $text-color;
+  }
+
+  a:hover,
+  a:active {
+    color: $text-color;
+    background-color: $tertiary-color-hover;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  :host {
+    h1 {
+      font-size: 20rem;
+    }
+  }
+}

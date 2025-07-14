@@ -1,0 +1,13 @@
+<article id="about-me">
+    <section class="container">
+        <article class="img-container">
+            <img src="portfolio/Rolam-kicsi.png" alt="Máté Balázs as a figure" loading="lazy">
+        </article>
+        <article class="container content-container">
+            <app-title [title]="title()" />
+            @for (paragraph of paragraphs(); track $index) {
+            <p>{{paragraph}}</p>
+            }
+        </article>
+    </section>
+</article>

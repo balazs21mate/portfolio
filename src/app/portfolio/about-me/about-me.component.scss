@@ -1,0 +1,46 @@
+@use "assets/styles/variables" as *;
+
+#about-me {
+  background-color: $primary-color;
+  color: $secondary-text-color;
+  font-family: $secondary-text;
+  font-weight: 400;
+  display: flex;
+
+  section {
+    display: flex;
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      background: linear-gradient(to top, $tertiary-color, $primary-color);
+      box-shadow: 1px 1px 10px $tertiary-color;
+
+      p {
+        padding-right: 20px;
+        font-size: 1rem;
+        border-right: 1px solid $tertiary-color-hover;
+      }
+    }
+    .img-container {
+      display: none;
+      box-shadow: 1px 1px 10px $tertiary-color;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #about-me {
+    section {
+      .img-container {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+@use "assets/styles/variables" as *;
+
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $secondary-text;
+  font-weight: 400;
+  color: $secondary-text-color;
+  height: 100svh;
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .img {
+    margin: 40px 0 40px 0;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 1px solid $tertiary-color-hover;
+    background-color: $tertiary-color;
+    background-image: url("/portfolio/profil.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .content {
+    text-transform: uppercase;
+    text-align: center;
+    h1 {
+      font-family: $primary-text;
+      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    article {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      h2 {
+        padding: 20px 0 20px 0;
+        font-family: $primary-text;
+        font-weight: 600;
+        font-size: 1.6rem;
+        margin: 0;
+      }
+    }
+  }
+
+  .down-arrow {
+    animation-name: pulse-arrow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes pulse-arrow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.circle {
+  background-color: $tertiary-color;
+  border-radius: 50%;
+  position: fixed;
+  z-index: -100;
+  border: 1px solid $tertiary-color-hover;
+}
+
+.big {
+  width: 250px;
+  height: 250px;
+  top: 80%;
+  right: -100px;
+}
+
+.medium {
+  width: 100px;
+  height: 100px;
+  top: 450px;
+}
+
+.small {
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  left: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  #home {
+    .img {
+      margin-right: 20px;
+    }
+    .content-container {
+      flex-direction: row;
+      .content {
+        width: 50%;
+      }
+    }
+  }
+  .big {
+    width: 250px;
+    height: 250px;
+    top: 900px;
+    right: 100px;
+  }
+
+  .medium {
+    width: 100px;
+    height: 100px;
+    top: 350px;
+    right: 30%;
+  }
+
+  .small {
+    width: 50px;
+    height: 50px;
+    top: 100px;
+    left: 100px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #home {
+    .img {
+      width: 500px;
+      height: 500px;
+    }
+  }
+  .big {
+    width: 350px;
+    height: 350px;
+    top: 800px;
+    right: 20%;
+  }
+
+  .medium {
+    width: 100px;
+    height: 100px;
+    top: 350px;
+    right: 40%;
+  }
+
+  .small {
+    width: 50px;
+    height: 50px;
+    top: 200px;
+    left: 20%;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  #home {
+    .img {
+      width: 200px;
+      height: 200px;
+    }
+    .content-container {
+      flex-direction: row;
+    }
+    .down-arrow {
+      display: none;
+    }
+  }
+  .big {
+    width: 250px;
+    height: 250px;
+    top: 10px;
+    right: -50px;
+  }
+
+  .medium {
+    display: none;
+  }
+  .small {
+    width: 50px;
+    height: 50px;
+    top: 50px;
+    left: 50px;
+  }
+}
+
+.circle-hide {
+  display: none;
+}

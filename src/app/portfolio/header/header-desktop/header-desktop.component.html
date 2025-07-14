@@ -1,0 +1,22 @@
+<header>
+    <section class="header-content container-fluid">
+        <nav>
+            <ul>
+                <li><a (click)="onChangeEnglish()"><img src="portfolio/english.png" alt="hungarian flag"
+                            height="26px"></a></li>
+                <li><a (click)="onChangeHungarian()"><img src="portfolio/hungarian.png" alt="hungarian flag"
+                            height="19px"></a></li>
+                @for (item of menuItems(); track $index) {
+                <li><app-menu-item [menuItem]="item" [isActive]="item.href === activeMenuItemRef()"
+                        (itemClicked)="onMenuItemClicked($event)" />
+                </li>
+                }@empty {
+                <li><a>About me</a></li>
+                <li><a>Skills</a></li>
+                <li><a>Mini Apps</a></li>
+                <li><a>Contact</a></li>
+                }
+            </ul>
+        </nav>
+    </section>
+</header>

@@ -1,0 +1,51 @@
+@use "assets/styles/variables" as *;
+
+header {
+  display: flex;
+  justify-content: center;
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    transform: translateY(calc(-100% + 52px));
+    transition: transform 1s ease-in-out;
+
+    &.nav-show {
+      transform: translateY(0px);
+    }
+    button {
+      background-color: $secondary-color;
+      padding: 10px;
+      border-radius: 0 0 10px 10px;
+      border: none;
+      align-self: flex-end;
+    }
+    nav {
+      background-color: $secondary-color;
+      color: $text-color;
+      font-family: $secondary-text;
+      font-weight: 400;
+      border-radius: 0 0 0 10px;
+      filter: opacity(0.9);
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          cursor: pointer;
+          padding: 10px;
+        }
+        .flags {
+          display: flex;
+          gap: 20px;
+        }
+      }
+    }
+  }
+}

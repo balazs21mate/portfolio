@@ -1,0 +1,13 @@
+@use "assets/styles/variables" as *;
+
+#mini-apps {
+  background-color: $primary-color;
+  font-family: $secondary-text;
+  font-weight: 400;
+  font-size: 1rem;
+  section {
+    .title {
+      text-align: center;
+    }
+  }
+}

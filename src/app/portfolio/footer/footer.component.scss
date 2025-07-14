@@ -1,0 +1,23 @@
+@use "assets/styles/variables" as *;
+
+footer {
+  background-color: $tertiary-color;
+  height: 200px;
+  font-family: $secondary-text;
+  font-weight: 400;
+  font-size: 1rem;
+  border-top: 10px solid $primary-color;
+  article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    a {
+      text-decoration: none;
+      margin: 0;
+      color: $secondary-text-color;
+      font-weight: 600;
+      border-bottom: 1px solid $secondary-text-color;
+    }
+  }
+}

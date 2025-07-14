@@ -1,0 +1,10 @@
+@use "assets/styles/variables" as *;
+
+a {
+  text-decoration: none;
+  color: $text-color;
+  padding-bottom: 5px;
+  &.active {
+    font-weight: 600;
+  }
+}

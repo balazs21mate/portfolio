@@ -1,0 +1,10 @@
+<section class="app">
+    <figure>
+        <img [src]="miniApp().imgSrc" [alt]="miniApp().imgTitle" width="100%">
+        <figcaption>{{miniApp().content}}</figcaption>
+    </figure>
+    <a [routerLink]="miniApp().buttonLink" class="button">{{miniApp().buttonText}} <img src="portfolio/right-arrow.png"
+            alt="right arrow" height="20px"></a>
+    <!-- <a [href]="miniApp().buttonLink" target="_blank" class="button">{{miniApp().buttonText}} <img
+            src="portfolio/right-arrow.png" alt="right arrow" height="20px"></a> -->
+</section>

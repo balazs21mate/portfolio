@@ -1,0 +1,253 @@
+@use "assets/styles/variables" as *;
+
+article {
+  display: flex;
+  font-family: $secondary-text;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-height: 100svh;
+  aside {
+    background-color: #00172b;
+    color: $text-color;
+    width: 40%;
+    .languages {
+      border: none;
+    }
+    .image {
+      border: none;
+      .profile {
+        width: 100%;
+        border-radius: 50%;
+        padding: 10px;
+      }
+    }
+    section {
+      border-bottom: 1px solid white;
+      padding-left: 5px;
+      p {
+        margin: 0;
+      }
+      ul {
+        list-style: none;
+        margin: 10px 0 10px 0;
+        padding: 0;
+        font-size: 0.438rem;
+        li {
+          margin: 5px 0;
+          .icon {
+            margin-right: 2px;
+            height: 8px;
+          }
+          .data-title {
+            filter: opacity(0.6);
+          }
+        }
+        .skills {
+          display: flex;
+          align-items: center;
+          .spinner {
+            --p: 0; /* Alapértelmezett százalék */
+            --b: 1px; /* A gyűrű vastagsága */
+            --c: white; /* A kitöltés színe (pl. kék) */
+            --bg: #313233; /* A háttér színe (pl. szürke) */
+
+            width: 8px; /* A diagram mérete */
+            height: 8px;
+
+            position: relative;
+            display: inline-grid;
+            place-content: center; /* Középre igazítja a szöveget */
+
+            /* Szöveg stílusai */
+            font-size: 1.5em;
+            font-weight: bold;
+            font-family: sans-serif;
+            &::before {
+              content: "";
+              position: absolute;
+              border-radius: 50%;
+              inset: 0;
+
+              /* A lényeg: a kúpos színátmenet */
+              background: conic-gradient(
+                var(--c) calc(var(--p) * 1%),
+                var(--bg) 0
+              );
+
+              /* Maszkolás a gyűrű effektushoz (lyuk a közepén) */
+              -webkit-mask: radial-gradient(
+                farthest-side,
+                #0000 calc(99% - var(--b)),
+                #000 0
+              );
+              mask: radial-gradient(
+                farthest-side,
+                #0000 calc(99% - var(--b)),
+                #000 0
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+  .main {
+    width: 60%;
+    border: 1px solid #00172b;
+    .about-me {
+      border-bottom: 1px solid #00172b;
+      padding: 0 10px 0 10px;
+      h1,
+      h2 {
+        font-family: $primary-text;
+        font-weight: 600;
+        margin: 0;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-top: 20px;
+      }
+      h2 {
+        font-size: 0.875rem;
+        margin-bottom: 20px;
+      }
+      .title {
+        margin: 0;
+      }
+    }
+    .schools {
+      padding: 0 10px 0 10px;
+      ul {
+        list-style: none;
+        margin-top: 10px;
+        padding: 0;
+        li {
+          margin-bottom: 10px;
+          p {
+            margin: 0;
+          }
+          .date {
+            font-size: 0.625rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  a {
+    font-family: $secondary-text;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0;
+    color: $primary-color;
+    background-color: #00172b;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .left {
+    img {
+      transform: translateX(0);
+      transition: transform 0.5s ease-in-out;
+    }
+    &:hover img {
+      transform: translateX(-5px);
+    }
+  }
+}
+@media screen and (min-width: 600px) {
+  article {
+    font-size: 1rem;
+    aside {
+      .image {
+        width: 150px;
+        height: 150px;
+        margin: 20px auto;
+      }
+      section {
+        ul {
+          font-size: 0.75rem;
+          li {
+            margin: 10px 0;
+            .icon {
+              height: 16px;
+            }
+          }
+          .skills {
+            .spinner {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+    .main {
+      .about-me {
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  article {
+    font-size: 1.25rem;
+    aside {
+      .image {
+        width: 200px;
+        height: 200px;
+        margin: 40px auto;
+      }
+      section {
+        ul {
+          font-size: 1rem;
+          li {
+            margin: 10px 0;
+            .icon {
+              height: 20px;
+            }
+          }
+          .skills {
+            .spinner {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+    .main {
+      .about-me {
+        h1 {
+          font-size: 2.25rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 400px) {
+  article {
+    aside {
+      .image {
+        width: 100px;
+        height: 100px;
+        margin: 10px auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "assets/styles/variables" as *;
+
+h2 {
+  padding: 20px 0 20px 0;
+  font-family: $primary-text;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0;
+  color: $tertiary-color;
+  text-shadow: 1px 1px 1px $secondary-text-color;
+}
